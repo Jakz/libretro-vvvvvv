@@ -781,7 +781,7 @@ void entityclass::createblock( int t, int xp, int yp, int w, int h, int trig /*=
     k = blocks.size();
 
     blockclass newblock;
-    blockclass* blockptr;
+    blockclass* blockptr = nullptr;
 
     /* Can we reuse the slot of a disabled block? */
     bool reuse = false;
@@ -1244,7 +1244,7 @@ void entityclass::createentity(int xp, int yp, int t, int meta1, int meta2, int 
     k = entities.size();
 
     entclass newent;
-    entclass* entptr;
+    entclass* entptr = nullptr;
 
     /* Can we reuse the slot of a disabled entity? */
     bool reuse = false;

@@ -428,7 +428,7 @@ namespace roomname_translator
             {
                 const char* old_explanation = loc::get_roomname_explanation(map.custommode, game.roomx, game.roomy);
                 const char* new_explanation = NULL;
-                const char* success_message;
+                const char* success_message = nullptr;
                 if (old_explanation[0] == '\0')
                 {
                     new_explanation = ".";

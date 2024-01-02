@@ -22,7 +22,7 @@
 
 #define malloc SDL_malloc
 #define realloc SDL_realloc
-#define free VVV_free
+//#define free VVV_free
 #ifdef memset /* Thanks, Apple! */
 #undef memset
 #endif
@@ -43,8 +43,6 @@
 #define exp(x) SDL_exp(x)
 
 #define qsort SDL_qsort
-
-#define assert SDL_assert
 
 #define FILE SDL_RWops
 #ifdef SEEK_SET

@@ -1057,7 +1057,7 @@ bool FILESYSTEM_saveTiXml2Document(const char *name, tinyxml2::XMLDocument& doc,
 bool FILESYSTEM_loadTiXml2Document(const char *name, tinyxml2::XMLDocument& doc)
 {
     /* XMLDocument.LoadFile doesn't account for Unicode paths, PHYSFS does */
-    unsigned char *mem;
+    unsigned char *mem = nullptr;
     FILESYSTEM_loadFileToMemory(name, &mem, NULL);
     if (mem == NULL)
     {
@@ -1071,7 +1071,7 @@ bool FILESYSTEM_loadTiXml2Document(const char *name, tinyxml2::XMLDocument& doc)
 bool FILESYSTEM_loadAssetTiXml2Document(const char *name, tinyxml2::XMLDocument& doc)
 {
     /* Same as FILESYSTEM_loadTiXml2Document except for possible custom assets */
-    unsigned char *mem;
+    unsigned char *mem = nullptr;
     FILESYSTEM_loadAssetToMemory(name, &mem, NULL);
     if (mem == NULL)
     {

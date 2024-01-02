@@ -76,7 +76,7 @@ static SDL_Surface* LoadSurfaceFromRaw(SDL_Surface* loadedImage)
 /* Can't be static, used in Screen.h */
 SDL_Surface* LoadImageSurface(const char* filename)
 {
-    unsigned char* data;
+    unsigned char* data = nullptr;
 
     SDL_Surface* loadedImage = LoadImageRaw(filename, &data);
 
@@ -176,7 +176,7 @@ SDL_Texture* LoadImage(const char *filename, const TextureLoadType loadtype)
         VVV_freefunc(SDL_FreeSurface, loadedImage);
     }
 
-    VVV_free(data);
+    free(data);
 
     if (texture == NULL)
     {
@@ -195,7 +195,7 @@ static SDL_Texture* LoadImage(const char* filename)
 /* Any unneeded variants can be NULL */
 static void LoadVariants(const char* filename, SDL_Texture** colored, SDL_Texture** white, SDL_Texture** grayscale)
 {
-    unsigned char* data;
+    unsigned char* data = nullptr;
     SDL_Surface* loadedImage = LoadImageRaw(filename, &data);
 
     if (colored != NULL)
@@ -233,7 +233,7 @@ static void LoadVariants(const char* filename, SDL_Texture** colored, SDL_Textur
         VVV_freefunc(SDL_FreeSurface, loadedImage);
     }
 
-    VVV_free(data);
+    free(data);
 }
 
 /* The pointers `texture` and `surface` cannot be NULL */
@@ -261,7 +261,7 @@ static void LoadSprites(const char* filename, SDL_Texture** texture, SDL_Surface
         VVV_freefunc(SDL_FreeSurface, loadedImage);
     }
 
-    VVV_free(data);
+    free(data);
 }
 
 static void LoadSpritesTranslation(
@@ -297,7 +297,7 @@ static void LoadSpritesTranslation(
         translated = LoadSurfaceFromRaw(loaded_image);
 
         VVV_freefunc(SDL_FreeSurface, loaded_image);
-        VVV_free(data);
+        free(data);
     }
     SDL_SetSurfaceBlendMode(translated, SDL_BLENDMODE_NONE);
 
